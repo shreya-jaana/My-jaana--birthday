@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Sarib 🖤</title>
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #000000, #0a0f2c);
+  color: white;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+#passwordScreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input {
+  padding: 10px;
+  background: black;
+  border: 1px solid navy;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: navy;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#mainContent {
+  display: none;
+  padding: 50px;
+}
+
+.glow {
+  font-size: 40px;
+  text-shadow: 0 0 10px navy, 0 0 20px blue;
+}
+
+#letter {
+  width: 70%;
+  margin: auto;
+  font-size: 18px;
+  margin-top: 30px;
+  min-height: 200px;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="passwordScreen">
+<h2>Only Sarib can enter this world...</h2>
+<input type="password" id="password" placeholder="Enter Password">
+<button onclick="checkPassword()">Enter</button>
+</div>
+
+<div id="mainContent">
+<h1 class="glow">Happy Birthday Sarib 🖤</h1>
+<p>9 March 2009 – The Day the Universe Got Lucky</p>
+
+<button onclick="startLetter()">Enter My Heart</button>
+
+<div id="letter"></div>
+
+<h2>Catch My Love 💕</h2>
+<button onclick="startGame()">Start Game</button>
+<p id="score"></p>
+</div>
+
+<script>
+function checkPassword() {
+  var pass = document.getElementById("password").value;
+  if(pass === "09032009") {
+    document.getElementById("passwordScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+  } else {
+    alert("Wrong password 🖤");
+  }
+}
+
+var text = "Sarib...\nIn a world full of noise, you are my quiet storm.\nIn a sky full of stars, you are my midnight blue.\nDistance may test us… but it will never weaken what I feel for you.\nYou were born on 9 March 2009…\nAnd somehow the universe decided that day to create my favorite person.\nI don’t just love you… I choose you. Every single day.\nHappy Birthday, my dark blue sky.\n\nCome closer...\n\n💋 Kiss for you.";
+var i = 0;
+
+function startLetter() {
+  var speed = 50;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("letter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+  typeWriter();
+}
+
+var score = 0;
+
+function startGame() {
+  score = 0;
+  document.getElementById("score").innerText = "Score: " + score;
+  setInterval(function(){
+    score++;
+    document.getElementById("score").innerText = "Score: " + score;
+    if(score === 10) {
+      alert("You caught my heart, Sarib 🖤");
+    }
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
